@@ -1,0 +1,32 @@
+[tools]
+java = "temurin-25"
+
+[tasks.compile]
+description = "Compile every .java file in src/ into out/"
+run = "mkdir -p out && javac -d out src/*.java"
+sources = ["src/**/*.java"]
+outputs = ["out/**/*.class"]
+
+[tasks.lesson]
+description = "Compile, then run a lesson by class name (e.g. mise run lesson Hello)"
+depends = ["compile"]
+usage = 'arg "<name>" help="Class name to run, e.g. Hello"'
+run = "java -cp out ${usage_name}"
+
+[tasks.quick]
+description = "Run a single source file without compiling (e.g. mise run quick Hello)"
+usage = 'arg "<name>" help="File name without .java, e.g. Hello"'
+run = "java src/${usage_name}.java"
+
+[tasks.shell]
+description = "Open jshell, the interactive Java REPL"
+run = "jshell"
+raw = true
+
+[tasks.lessons]
+description = "List available lessons"
+run = "ls src | sed 's/\\.java$//'"
+
+[tasks.clean]
+description = "Delete compiled output"
+run = "rm -rf out"
