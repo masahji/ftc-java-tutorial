@@ -1,5 +1,7 @@
 # Lesson 6: Interfaces
 
+**Files to edit:** `Measurable.java`, `Shape.java`, `Tile.java`, `Measure.java` (in `lessons/04-07-shapes/`)
+
 Same folder: `lessons/04-07-shapes/`.
 
 ## The problem
@@ -62,14 +64,15 @@ works the same whichever brand of motor is plugged in.
 
 ## Your job, part 1: your own interface
 
-1. Create `Measurable.java`: an interface with one method, `double area();`
-2. Make `Shape` implement `Measurable`. (Shape already has an `area()`, so
+1. Open `Measurable.java` and give the interface its one method:
+   `double area();`
+2. Open `Shape.java` and make `Shape` implement `Measurable`. (Shape already has an `area()`, so
    this is a one-line change.)
-3. Create `Tile.java`: a square field tile. It must NOT extend Shape.
+3. Open `Tile.java`: a square field tile. It must NOT extend Shape.
    - `implements Measurable`
    - constructor `Tile(double side)`
    - `area()` is side times side
-4. Create `Measure.java` with
+4. Open `Measure.java` and finish
    `static double total(List<Measurable> things)`: all the areas added up.
 
 The checker will hand `Measure.total` an object of a class that it invents on
@@ -83,7 +86,7 @@ know which of two Shapes comes first? By color? By name? It can't guess. So
 Java publishes a contract called `Comparable`, and sorts anything that signs
 it.
 
-5. Make `Shape` implement `Comparable<Shape>` too:
+5. Back in `Shape.java`, make `Shape` implement `Comparable<Shape>` too:
 
        public abstract class Shape implements Measurable, Comparable<Shape>
 

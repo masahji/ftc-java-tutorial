@@ -1,5 +1,7 @@
 # Lesson 3: Classes and objects
 
+**Files to edit:** `Motor.java` (in `lessons/03-classes/`)
+
 A **class** is a blueprint. An **object** is a thing built from that
 blueprint. One blueprint, as many objects as you want, and each object keeps
 its own data.

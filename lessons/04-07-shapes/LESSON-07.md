@@ -1,5 +1,7 @@
 # Lesson 7: Color and method chaining
 
+**Files to edit:** `Color.java`, `Shape.java` (in `lessons/04-07-shapes/`)
+
 Same folder: `lessons/04-07-shapes/`.
 
 ## Method chaining
@@ -43,7 +45,7 @@ a whole number from 0 to 255. Web pages write colors as a "hex code":
     red 255, green 136, blue 0   ->   #FF8800
     red 5,   green 10,  blue 15  ->   #050A0F
 
-Create `Color.java`:
+Open `Color.java` and write:
 
 1. constructor `Color(int red, int green, int blue)`
 2. `int getRed()`, `int getGreen()`, `int getBlue()`
@@ -66,7 +68,7 @@ new Color(0, 0, 0).withRed(255).withGreen(136).toHex()    // "#FF8800"
 
 ## Your job, part 2: paint the shapes
 
-Add to `Shape`:
+Open `Shape.java` and add:
 
 6. `Shape paint(Color color)`: remembers the color, then returns `this`.
 7. `Color getColor()`: the color the shape was painted.

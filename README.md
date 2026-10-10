@@ -32,12 +32,16 @@ Every lesson is the same four steps. Here they are for lesson 1:
 | Step | Command | What happens |
 | --- | --- | --- |
 | 1. Read | `mise run lesson 1` | Prints the lesson: the idea, an example, and your job |
-| 2. Write | (your editor) | Edit the files in the lesson's folder under `lessons/` |
+| 2. Write | (your editor) | Edit the starter file the lesson names, e.g. `lessons/01-hello/Hello.java` |
 | 3. Try | `mise run try 1` | Runs your code so you can see what it does |
 | 4. Check | `mise run check 1` | Tests your code and prints `[PASS]` or `[FAIL]` for each test |
 
 Repeat steps 2 to 4 until every check passes. Then move on to the next
 lesson.
+
+Every lesson comes with a starter file for each thing you have to write, with
+`TODO` comments marking where your code goes. The lesson, and the checker when
+something fails, tell you which files those are ("Files to edit").
 
 Good to know:
 

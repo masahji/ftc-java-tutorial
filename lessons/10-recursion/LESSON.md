@@ -1,5 +1,7 @@
 # Lesson 10: Recursion
 
+**Files to edit:** `Recursion.java` (in `lessons/10-recursion/`)
+
 A **recursive** method is a method that calls itself.
 
 That sounds like it should run forever. It doesn't, because each call works

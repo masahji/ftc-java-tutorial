@@ -1,5 +1,7 @@
 # Lesson 8: Lists and simple algorithms
 
+**Files to edit:** `ListAlgorithms.java` (in `lessons/08-lists/`)
+
 An **algorithm** is a recipe: exact steps that turn an input into an answer.
 This lesson is about the most common family of recipes: "walk through a
 list and keep track of something as you go".

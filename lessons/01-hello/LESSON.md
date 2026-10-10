@@ -1,5 +1,7 @@
 # Lesson 1: Hello, World and static methods
 
+**Files to edit:** `Hello.java` (in `lessons/01-hello/`)
+
 Every Java program starts in a method called `main`. Java runs the lines
 inside it from top to bottom.
 

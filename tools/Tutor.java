@@ -24,24 +24,24 @@ import javax.tools.ToolProvider;
  *   java tools/Tutor.java field 2
  */
 public class Tutor {
-    record Lesson(int number, String title, String dir, String file, String mainClass, Checker.Suite suite) {
+    record Lesson(int number, String title, String dir, String file, String edit, String mainClass, Checker.Suite suite) {
     }
 
     static final String SHAPES = "lessons/04-07-shapes";
 
     static final List<Lesson> LESSONS = List.of(
-            new Lesson(1, "Hello, World and static methods", "lessons/01-hello", "LESSON.md", "Hello", new Check01Hello()),
-            new Lesson(2, "Warm-up: methods, ifs and loops", "lessons/02-warmup", "LESSON.md", "Main", new Check02Warmup()),
-            new Lesson(3, "Classes and objects", "lessons/03-classes", "LESSON.md", "Main", new Check03Classes()),
-            new Lesson(4, "Inheritance", SHAPES, "LESSON-04.md", "Main", new Check04Inheritance()),
-            new Lesson(5, "Abstract classes and polymorphism", SHAPES, "LESSON-05.md", "Main", new Check05Abstract()),
-            new Lesson(6, "Interfaces", SHAPES, "LESSON-06.md", "Main", new Check06Interfaces()),
-            new Lesson(7, "Color and method chaining", SHAPES, "LESSON-07.md", "Main", new Check07Chaining()),
-            new Lesson(8, "Lists and simple algorithms", "lessons/08-lists", "LESSON.md", "Main", new Check08Lists()),
-            new Lesson(9, "HashMap: counting things", "lessons/09-hashmaps", "LESSON.md", "Main", new Check09HashMaps()),
-            new Lesson(10, "Recursion", "lessons/10-recursion", "LESSON.md", "Main", new Check10Recursion()),
-            new Lesson(11, "Towers of Hanoi", "lessons/11-hanoi", "LESSON.md", "Main", new Check11Hanoi()),
-            new Lesson(12, "Challenge: the smart robot", "lessons/12-robot", "LESSON.md", "Main", new Check12Robot()));
+            new Lesson(1, "Hello, World and static methods", "lessons/01-hello", "LESSON.md", "Hello.java", "Hello", new Check01Hello()),
+            new Lesson(2, "Warm-up: methods, ifs and loops", "lessons/02-warmup", "LESSON.md", "Warmup.java", "Main", new Check02Warmup()),
+            new Lesson(3, "Classes and objects", "lessons/03-classes", "LESSON.md", "Motor.java", "Main", new Check03Classes()),
+            new Lesson(4, "Inheritance", SHAPES, "LESSON-04.md", "Rectangle.java, Square.java", "Main", new Check04Inheritance()),
+            new Lesson(5, "Abstract classes and polymorphism", SHAPES, "LESSON-05.md", "Shape.java, Triangle.java, Shapes.java", "Main", new Check05Abstract()),
+            new Lesson(6, "Interfaces", SHAPES, "LESSON-06.md", "Measurable.java, Shape.java, Tile.java, Measure.java", "Main", new Check06Interfaces()),
+            new Lesson(7, "Color and method chaining", SHAPES, "LESSON-07.md", "Color.java, Shape.java", "Main", new Check07Chaining()),
+            new Lesson(8, "Lists and simple algorithms", "lessons/08-lists", "LESSON.md", "ListAlgorithms.java", "Main", new Check08Lists()),
+            new Lesson(9, "HashMap: counting things", "lessons/09-hashmaps", "LESSON.md", "Frequency.java", "Main", new Check09HashMaps()),
+            new Lesson(10, "Recursion", "lessons/10-recursion", "LESSON.md", "Recursion.java", "Main", new Check10Recursion()),
+            new Lesson(11, "Towers of Hanoi", "lessons/11-hanoi", "LESSON.md", "Hanoi.java", "Main", new Check11Hanoi()),
+            new Lesson(12, "Challenge: the smart robot", "lessons/12-robot", "LESSON.md", "SmartRobot.java", "Main", new Check12Robot()));
 
     static final Path PROGRESS = Path.of(".progress");
     static final String RULE = "------------------------------------------------------------------------";
@@ -90,11 +90,14 @@ public class Tutor {
         System.out.println(RULE);
         System.out.println("Lesson " + lesson.number() + ": " + lesson.title());
         System.out.println(RULE);
+        System.out.println("Folder:        " + lesson.dir() + "/");
+        System.out.println("Files to edit: " + lesson.edit());
         System.out.println();
         System.out.println(Files.readString(Path.of(lesson.dir(), lesson.file())).strip());
         System.out.println();
         System.out.println(RULE);
-        System.out.println("Your files:      " + lesson.dir() + "/");
+        System.out.println("Folder:          " + lesson.dir() + "/");
+        System.out.println("Files to edit:   " + lesson.edit());
         System.out.println("Run your code:   mise run try " + lesson.number());
         System.out.println("Check your work: mise run check " + lesson.number());
         System.out.println(RULE);
@@ -152,6 +155,7 @@ public class Tutor {
             }
         } else {
             System.out.println(checker.passed + " passed, " + checker.failed + " failed.");
+            System.out.println("Files to edit:  " + lesson.edit() + "  (in " + lesson.dir() + "/)");
             System.out.println("Fix the first [FAIL], then run:  mise run check " + lesson.number());
         }
         System.out.println();
@@ -173,7 +177,7 @@ public class Tutor {
 
         Lesson lesson = LESSONS.get(11);
         List<?> path = null;
-        String note = "No SmartRobot yet. Create " + lesson.dir() + "/SmartRobot.java to see its path here.";
+        String note = "No SmartRobot found in " + lesson.dir() + "/.";
         Student student = compile(lesson);
         if (student != null && student.has("SmartRobot")) {
             try {

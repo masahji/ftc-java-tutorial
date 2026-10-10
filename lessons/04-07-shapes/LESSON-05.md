@@ -1,5 +1,7 @@
 # Lesson 5: Abstract classes and polymorphism
 
+**Files to edit:** `Shape.java`, `Triangle.java`, `Shapes.java` (in `lessons/04-07-shapes/`)
+
 Same folder as lesson 4: `lessons/04-07-shapes/`.
 
 ## Part 1: abstract classes
@@ -55,10 +57,10 @@ big win: add a `Cow` class next month and this loop works with no changes.
 
 ## Your job
 
-1. Change `Shape` into an abstract class, and make `area()` and
+1. Open `Shape.java`. Change `Shape` into an abstract class, and make `area()` and
    `perimeter()` abstract methods. `describe()` stays as it is.
    Run `mise run check 4` afterward: lesson 4 must still pass.
-2. Create `Triangle.java`. A `Triangle` extends `Shape`.
+2. Open `Triangle.java`. Make `Triangle` extend `Shape`, then add:
    - constructor `Triangle(double a, double b, double c)`: its three sides
    - its name is `"Triangle"`
    - `perimeter()`: add up the sides
@@ -68,13 +70,11 @@ big win: add a `Cow` class next month and this loop works with no changes.
 
      A 3-4-5 triangle has area 6. Find the square root method in the `Math`
      Javadoc below.
-3. Create `Shapes.java` with two static methods that take a `List<Shape>`:
+3. Open `Shapes.java` and finish its two static methods:
    - `static double totalArea(List<Shape> shapes)`: all the areas added up
      (0 for an empty list)
    - `static Shape largest(List<Shape> shapes)`: the shape with the biggest
      area (you may assume the list is not empty)
-
-   You will need `import java.util.List;` at the top of the file.
 
 Your `Shapes` methods must not mention Rectangle, Square or Triangle at all.
 They only know about `Shape`. That is the whole point.

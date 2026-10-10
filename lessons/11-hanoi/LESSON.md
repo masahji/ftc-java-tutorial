@@ -1,5 +1,7 @@
 # Lesson 11: Towers of Hanoi
 
+**Files to edit:** `Hanoi.java` (in `lessons/11-hanoi/`)
+
 A famous puzzle, and the best showcase for recursion there is.
 
 There are three pegs. A stack of disks sits on the first peg, biggest on the

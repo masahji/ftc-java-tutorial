@@ -1,5 +1,7 @@
 # Lesson 4: Inheritance
 
+**Files to edit:** `Rectangle.java`, `Square.java` (in `lessons/04-07-shapes/`)
+
 Lessons 4, 5, 6 and 7 all happen in this one folder, `lessons/04-07-shapes/`.
 You will keep building on the same classes, the way real projects grow.
 
@@ -64,12 +66,12 @@ extends `Animal`.
 
 `Shape.java` is already written. Read it first. Do not change it yet.
 
-1. Create `Rectangle.java`. A `Rectangle` extends `Shape`.
+1. Open `Rectangle.java`. Make `Rectangle` extend `Shape`, then add:
    - constructor `Rectangle(double width, double height)`
    - `double getWidth()` and `double getHeight()`
    - override `area()` and `perimeter()`
    - its name is `"Rectangle"`
-2. Create `Square.java`. A `Square` extends `Rectangle` (three levels!).
+2. Open `Square.java`. Make `Square` extend `Rectangle` (three levels!).
    - constructor `Square(double side)`
    - its name is `"Square"`
    - `Square` must NOT contain its own `area()` or `perimeter()`. A square is

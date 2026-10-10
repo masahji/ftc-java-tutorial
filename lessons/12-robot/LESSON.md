@@ -1,5 +1,7 @@
 # Lesson 12 (challenge): the smart robot
 
+**Files to edit:** `SmartRobot.java` (in `lessons/12-robot/`)
+
 Everything so far comes together here: classes, an interface, lists, maps or
 sets, loops, and a real algorithm. This one is hard. It is supposed to be.
 Expect it to take more than one sitting.
@@ -46,7 +48,8 @@ BeelineRobot and watch it crash:
 
 ## Your job
 
-Create `SmartRobot.java`: a class that `implements Robot`.
+Open `SmartRobot.java`. It already `implements Robot`, but its `findPath`
+just gives up and returns `null`. Make it smart.
 
 `findPath` must return the moves for a SHORTEST path from the start to the
 target: the fewest steps possible, never touching a wall.
@@ -103,8 +106,8 @@ attempt.
 
 ## Work in small steps
 
-1. Make `SmartRobot` compile: implement the interface, return `null`.
-   Run `mise run check 12`. The "Boxed in" field already passes!
+1. Run `mise run check 12` before you change anything. The "Boxed in"
+   field already passes, because giving up is the right answer there!
 2. Make it spread the water and just print the number for the target tile.
    Compare with `mise run field 1`, which tells you the right answer.
 3. Then work on turning that into the list of moves.

@@ -1,5 +1,7 @@
 # Lesson 9: HashMap, the counting machine
 
+**Files to edit:** `Frequency.java` (in `lessons/09-hashmaps/`)
+
 ## What is a map?
 
 A `List` finds things by position: "give me item number 3". A **map** finds

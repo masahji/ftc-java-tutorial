@@ -1,5 +1,7 @@
 # Lesson 2: Warm-up with methods, ifs and loops
 
+**Files to edit:** `Warmup.java` (in `lessons/02-warmup/`)
+
 Time to shake the rust off. Five small methods, each one a little harder.
 
 ## Reminders
