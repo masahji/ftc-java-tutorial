@@ -9,11 +9,18 @@ that is on purpose. Working it out is how it sticks.
 
 ## Setup (once)
 
-1. Install [mise](https://mise.jdx.dev/getting-started.html):
+You need two things: **git** (to download the lessons) and **mise** (which
+installs the right version of Java for you and runs the lessons). Pick your
+computer below.
+
+### Mac or Linux
+
+1. Open the Terminal app and install [mise](https://mise.jdx.dev/getting-started.html):
    ```sh
    curl https://mise.run | sh
    ```
-2. Get the code and install Java:
+   Then close the terminal and open a new one.
+2. Get the lessons and install Java:
    ```sh
    git clone https://github.com/masahji/ftc-java-tutorial.git
    cd ftc-java-tutorial
@@ -24,6 +31,61 @@ that is on purpose. Working it out is how it sticks.
    ```sh
    mise run lessons
    ```
+
+### Windows
+
+Use **PowerShell** for everything (press the Windows key, type `powershell`,
+press Enter). Windows 10 and 11 both work.
+
+1. Install git and mise. `winget` comes with Windows:
+   ```powershell
+   winget install Git.Git
+   winget install jdx.mise
+   ```
+   Say yes if it asks for permission.
+2. **Close PowerShell and open a new one.** The new commands are not found
+   until you do.
+3. Check that both installed. Each line should print a version number:
+   ```powershell
+   git --version
+   mise --version
+   ```
+4. Get the lessons and install Java:
+   ```powershell
+   cd $HOME\Documents
+   git clone https://github.com/masahji/ftc-java-tutorial.git
+   cd ftc-java-tutorial
+   mise trust
+   mise install
+   ```
+5. Make sure it works:
+   ```powershell
+   mise run lessons
+   ```
+
+Every `mise run ...` command in this README is typed the same way on Windows.
+
+If something goes wrong on Windows:
+
+- **`winget` is not recognized**: install "App Installer" from the Microsoft
+  Store, then open a new PowerShell. Or download the installers by hand:
+  [git](https://git-scm.com/download/win) and
+  [mise](https://mise.jdx.dev/installing-mise.html#windows).
+- **`mise` or `git` is not recognized**: you are still in the old PowerShell
+  window. Close it and open a new one.
+- **`java` is not recognized when you type it yourself**: that is fine. You
+  never need to type `java`. `mise run ...` finds Java for you.
+- **`mise run` says there are no tasks**: you are in the wrong folder. Run
+  `cd $HOME\Documents\ftc-java-tutorial` first.
+
+### Coming back later
+
+Open a terminal (PowerShell on Windows), go to the folder, and carry on:
+
+```sh
+cd ftc-java-tutorial       # Windows: cd $HOME\Documents\ftc-java-tutorial
+mise run lessons
+```
 
 ## How a lesson works
 

@@ -43,4 +43,5 @@ raw = true
 
 [tasks.clean]
 description = "Delete compiled output (your code and your progress are kept)"
-run = "rm -rf out"
+quiet = true
+run = "java tools/Tutor.java clean"

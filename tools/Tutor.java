@@ -57,6 +57,10 @@ public class Tutor {
             case "try" -> tryIt(pick(arg));
             case "check" -> check(pick(arg));
             case "field" -> field(arg);
+            case "clean" -> {
+                deleteTree(Path.of("out"));
+                System.out.println("Deleted the compiled files in out/.");
+            }
             default -> System.out.println("Unknown command: " + command);
         }
         System.out.flush();
