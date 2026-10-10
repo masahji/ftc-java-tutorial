@@ -1,32 +1,46 @@
 [tools]
 java = "temurin-25"
 
-[tasks.compile]
-description = "Compile every .java file in src/ into out/"
-run = "mkdir -p out && javac -d out src/*.java"
-sources = ["src/**/*.java"]
-outputs = ["out/**/*.class"]
+[tasks.lessons]
+description = "List every lesson and show which ones you have finished"
+quiet = true
+run = "java tools/Tutor.java list"
 
 [tasks.lesson]
-description = "Compile, then run a lesson by class name (e.g. mise run lesson Hello)"
-depends = ["compile"]
-usage = 'arg "<name>" help="Class name to run, e.g. Hello"'
-run = "java -cp out ${usage_name}"
+description = "Read a lesson: mise run lesson 1 (no number = your next unfinished lesson)"
+quiet = true
+usage = 'arg "[number]" help="Lesson number, 1 to 12"'
+run = "java tools/Tutor.java lesson {{usage.number}}"
 
-[tasks.quick]
-description = "Run a single source file without compiling (e.g. mise run quick Hello)"
-usage = 'arg "<name>" help="File name without .java, e.g. Hello"'
-run = "java src/${usage_name}.java"
+[tasks.try]
+description = "Run your code for a lesson: mise run try 1"
+quiet = true
+usage = 'arg "[number]" help="Lesson number, 1 to 12"'
+run = "java tools/Tutor.java try {{usage.number}}"
+
+[tasks.check]
+description = "Check your work on a lesson: mise run check 1"
+quiet = true
+usage = 'arg "[number]" help="Lesson number, 1 to 12"'
+run = "java tools/Tutor.java check {{usage.number}}"
+
+[tasks.field]
+description = "Lesson 12: draw a challenge field and your robot's path: mise run field 2"
+quiet = true
+usage = 'arg "[number]" help="Field number, 1 to 5"'
+run = "java tools/Tutor.java field {{usage.number}}"
+
+[tasks.example]
+description = "Run one of the finished examples in src/: mise run example Variables"
+quiet = true
+usage = 'arg "<name>" help="File name without .java, e.g. Variables"'
+run = "java src/{{usage.name}}.java"
 
 [tasks.shell]
-description = "Open jshell, the interactive Java REPL"
+description = "Open jshell, a place to try Java one line at a time"
 run = "jshell"
 raw = true
 
-[tasks.lessons]
-description = "List available lessons"
-run = "ls src | sed 's/\\.java$//'"
-
 [tasks.clean]
-description = "Delete compiled output"
+description = "Delete compiled output (your code and your progress are kept)"
 run = "rm -rf out"
